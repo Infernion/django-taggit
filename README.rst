@@ -1,6 +1,6 @@
 django-taggit
 =============
-
+This fork has fixed unicode slugify field.
 ``django-taggit`` a simpler approach to tagging with Django.  Add ``"taggit"`` to your
 ``INSTALLED_APPS`` then just add a TaggableManager to your model and go::
 
