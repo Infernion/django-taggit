@@ -1,9 +1,12 @@
 from setuptools import setup, find_packages
 
-
 f = open('README.rst')
 readme = f.read()
 f.close()
+
+requirements = [
+    'unidecode'
+    ]
 
 setup(
     name='django-taggit',
@@ -37,4 +40,5 @@ setup(
     ],
     include_package_data=True,
     zip_safe=False,
+    install_requires=requirements,
 )
