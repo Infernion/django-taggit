@@ -8,6 +8,8 @@ from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ugettext
 
+import unidecode
+
 try:
     from django.contrib.contenttypes.fields import GenericForeignKey
 except ImportError:  # django < 1.7
@@ -65,7 +67,7 @@ class TagBase(models.Model):
                                    .values_list('slug', flat=True))
             i = 1
             while True:
-                slug = self.slugify(self.name, i)
+                slug = unidecode.unidecode(default_slugify(tag))
                 if slug not in slugs:
                     self.slug = slug
                     # We purposely ignore concurrecny issues here for now.
